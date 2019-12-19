@@ -1,0 +1,73 @@
+﻿@inject IResourceManager _resourceManager
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="theme-color" content="#563d7c">
+
+    <title>@ViewData["Title"] - @_resourceManager[SharedResource.SiteName]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.min.css" />
+    @RenderSection("Styles", required: false)
+</head>
+<body class="d-flex flex-column">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler p-2 border-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="mdi mdi-menu mdi-24px line-height-24px"></span>
+                    </button>
+                    <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                        <span class="mdi mdi-36px line-height-36px mdi-storefront ml-2"></span>
+                        @_resourceManager[SharedResource.SiteName]
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse mb-2 mb-sm-0" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-action="List" asp-controller="Master">@_resourceManager[SharedResource.ViewMasters]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="List" asp-controller="Product">@_resourceManager[SharedResource.ViewProducts]</a>
+                        </li>
+                    </ul>
+                </div>
+                <vc:cart-summary></vc:cart-summary>
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <footer class="bg-dark mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-7 py-4">
+                    <h4 class="text-white">@_resourceManager[SharedResource.AboutUs]</h4>
+                    <p class="text-muted">
+                        @_resourceManager[SharedResource.PurposeOfSite]
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-5 py-4">
+                    <h4 class="text-white">@_resourceManager[SharedResource.ContactUs]</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">@_resourceManager[SharedResource.ConnectViaTwitter]: <span dir="ltr" class="text-white-50">@@oroumand</span></a></li>
+                        <li><a href="#" class="text-white">@_resourceManager[SharedResource.Email]: <span dir="ltr" class="text-white-50">ar.oroumand@@gmail.com</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @*@RenderBody()*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

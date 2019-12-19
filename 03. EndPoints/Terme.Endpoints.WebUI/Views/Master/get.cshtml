@@ -1,0 +1,52 @@
+﻿@inject IResourceManager _resourceManager
+@model DtoMasterDetails
+@{
+    ViewData["Title"] = Model.FullName;
+}
+@section Styles
+{
+    <link href="~/lib/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/lib/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet" />
+}
+@section Scripts
+{
+    <script src="~/lib/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            dots: true,
+            nav: false,
+            margin: 10,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 3
+                },
+                992: {
+                    items: 4
+                }
+            }
+        })
+    </script>
+}
+<div class="container py-4">
+    <h4 class="mb-5">@string.Format("{0}: {1}", _resourceManager[SharedResource.MasterDetails], Model.FullName)</h4>
+
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="@Model.PhotoUrl" class="mb-4 img-fluid" />
+            <h6>@Model.FullName</h6>
+        </div>
+        <div class="col-md-8">
+            <p class="text-justify">@Html.Raw(@Model.Description)</p>
+        </div>
+    </div>
+
+</div>
+<vc:products text-seach="" category-id="-1" order-by="@EnumOrderByProduct.NewestToOldest" page-number="1" number-of-products="9" enabled-paging="true" enabled-sorting="false" master-id="@Model.Id" title="@_resourceManager[SharedResource.MastersProducts]" display-mode-products="@EnumDisplayModeProducts.Card"></vc:products>
+<div class="container">
+    <vc:products text-seach="" category-id="-1" order-by="@EnumOrderByProduct.NewestToOldest" page-number="1" number-of-products="9" enabled-paging="true" enabled-sorting="false" master-id="-1" title="@_resourceManager[SharedResource.LatestProduct]" display-mode-products="@EnumDisplayModeProducts.Slider"></vc:products>
+</div>

@@ -1,0 +1,15 @@
+﻿@import url('../IRANSans/css/fontiran.min.css');
+@import url('../lib/materialdesign/css/materialdesignicons.min.css');
+
+
+body, .dropdown-menu {
+    font-size: .9rem;
+    text-align: right !important;
+    font-family: IRANSans !important;
+    font-weight: 300;
+}
+
+a:hover {
+    text-decoration: none;
+    color: Blue;
+}

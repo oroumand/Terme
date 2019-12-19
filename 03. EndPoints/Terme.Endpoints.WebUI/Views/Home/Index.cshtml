@@ -1,0 +1,21 @@
+﻿@inject IResourceManager _resourceManager
+@{
+    ViewData["Title"] = _resourceManager[SharedResource.HomePage];
+}
+
+
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>@_resourceManager[SharedResource.AboutUs]</h1>
+            <p class="lead text-muted">
+                @_resourceManager[SharedResource.PurposeOfSite]
+            </p>
+            <p>
+                <a asp-action="List" asp-controller="Master" class="btn btn-primary my-2">@_resourceManager[SharedResource.ViewMasters]</a>
+                <a asp-action="List" asp-controller="Product" class="btn btn-secondary my-2">@_resourceManager[SharedResource.ViewProducts]</a>
+            </p>
+        </div>
+    </section>
+    @await Component.InvokeAsync("Products", new { numberOfProducts = 9, Title = @_resourceManager[SharedResource.LatestProduct], DisplayModeProducts = EnumDisplayModeProducts.Card })
+</main>

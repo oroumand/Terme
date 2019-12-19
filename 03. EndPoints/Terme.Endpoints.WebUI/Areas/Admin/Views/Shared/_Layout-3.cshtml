@@ -1,0 +1,83 @@
+﻿@inject IResourceManager _resourceManager
+@inject IStringLocalizer<SharedResource> Localizer
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome-free/css/all.css" rel="stylesheet" />
+    <link href="~/css/admin.css" rel="stylesheet" />
+    <link href="~/css/image-picker.css" rel="stylesheet" />
+
+    <link href="~/css/admin-layout.css" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
+            </ul>
+            <form class="form-inline my-2 my-md-0"> </form>
+        </div>
+    </nav>
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="nav-item"><a asp-action="Index" asp-controller="Categories" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.Categories]</span></a></li>
+                <li class="nav-item"><a asp-action="AddCategory" asp-controller="Categories" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddCategory]</span></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="Masters" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.Masters]</span></a></li>
+                <li class="nav-item"><a asp-action="Add" asp-controller="Masters" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddMaster]</span></a></li>
+                <li class="nav-item"><a asp-action="Index" asp-controller="MasterProduct" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.MasterProducts]</span></a></li>
+                <li class="nav-item"><a asp-action="AddMasterProduct" asp-controller="MasterProduct" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddMasterProduct]</span></a></li>
+            </ul>
+        </div> <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div id="content-wrapper">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+        </div> <!-- /#page-content-wrapper -->
+    </div> <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/admin.js"></script>
+    @*<script src="js/jquery.min.js"></script>*@
+    @*<script src="js/bootstrap.bundle.min.js"></script> <!-- Menu Toggle Script -->*@
+    <script>
+        $(function () {
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            $(window).resize(function (e) {
+                if ($(window).width() <= 768) {
+                    $("#wrapper").removeClass("toggled");
+                } else {
+                    $("#wrapper").addClass("toggled");
+                }
+            });
+        });
+
+    </script>
+
+
+
+    @RenderSection("Scripts", false)
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿@model Terme.Core.Domain.Orders.Entities.Order
+@inject IResourceManager _resourceManager
+@{
+    ViewData["Title"] = @_resourceManager[SharedResource.OrderCompeleted];
+}
+
+<div class="container py-4">
+    <div class="text-center text-success">
+        <span class="mdi mdi-check-circle-outline mdi-48px"></span>
+        <h4>@_resourceManager[SharedResource.OrderRegistered]</h4>
+    </div>
+    <div class="text-center mt-4">
+        <div class="mb-2">
+            @_resourceManager[SharedResource.OrderId]: <span class="font-weight-bold">@Model.Id</span>
+        </div>
+        <div>
+            @_resourceManager[SharedResource.TotalPrice]: <span class="font-weight-bold">@Model.OrderLines.Sum(c => c.Price)</span>
+        </div>
+        <form asp-action="RequestPayment" asp-controller="Payment" method="post" class="mt-4">
+            <input type="hidden" value="@Model.Id" name="orderId" />
+            <input type="submit" class="btn btn-success" value="@_resourceManager[SharedResource.DoPayment]" />
+        </form>
+    </div>
+
+
+</div>

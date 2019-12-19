@@ -1,0 +1,27 @@
+﻿@inject IResourceManager _resourceManager
+@model DtoPassRequestToViewComponentProduct
+@*@model List<DtoProductBrief>*@
+
+@{
+	ViewData["Title"] = "List of Products";
+}
+
+
+@await Component.InvokeAsync("Products", new
+{
+
+	//Set by Designer(static values)
+	numberOfProducts = 9,
+	EnabledPaging=true,
+    EnabledSorting=true,
+	Title = @_resourceManager[SharedResource.ListOfAllProducts],
+
+	//Set by Request parameters
+	pageNumber = Model.CurrentPage,
+	TextSeach = Model.TextSeach,
+	MasterId = Model.MasterId,
+	CategoryId = Model.CategoryId,
+	OrderBy=Model.OrderByProduct
+
+})
+

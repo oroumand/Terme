@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewData["Title"] = _resourceManager[SharedResource.AddMasterProduct];
+}
+
+@inject IResourceManager _resourceManager
+@model Terme.Endpoints.WebUI.Areas.Admin.Models.Masters.AddMasterProductViewModel
+@{
+    ViewData["Title"] = _resourceManager[SharedResource.AddMasterProduct];
+}
+
+<div class="container py-4">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">
+                <i class="fa fa-save"></i>
+                @_resourceManager[SharedResource.AddMasterProduct]
+            </h5>
+        </div>
+        <div class="card-body">
+            <form enctype="multipart/form-data" asp-controller="MasterProduct" asp-action="AddMasterProduct" asp-area="admin" method="post">
+
+                <div class="form-group">
+                    <label asp-for="MasterId"></label>
+                    <select class="form-control" asp-for="MasterId" asp-items="Model.GetMastersListItems()">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MainPhoto">@_resourceManager[SharedResource.MainPhoto]</label>
+                    <input type="file" class="form-control" asp-for="MainPhoto">
+                    <span asp-validation-for="MainPhoto"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Photos">@_resourceManager[SharedResource.Photos]</label>
+                    <input type="file" class="form-control" asp-for="Photos" multiple />
+                    <span asp-validation-for="Photos"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CategoryId"></label>
+                    <select class="form-control" asp-for="CategoryId" asp-items="Model.GetCategoriesListItems()">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input type="text" class="form-control" asp-for="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price"></label>
+                    <input type="number" class="form-control" asp-for="Price">
+                    <span asp-validation-for="Price"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Discount"></label>
+                    <input type="number" class="form-control" asp-for="Discount">
+                    <span asp-validation-for="Discount"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ShortDescription"></label>
+                    <input type="text" class="form-control" asp-for="ShortDescription">
+                    <span asp-validation-for="ShortDescription"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description"></textarea>
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <p class="mb-0 text-left">
+                    <button type="submit" class="btn btn-primary">@_resourceManager[SharedResource.Save]</button>
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({ selector: 'textarea' });
+    </script>
+}
+

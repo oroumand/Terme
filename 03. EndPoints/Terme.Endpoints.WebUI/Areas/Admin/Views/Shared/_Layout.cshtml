@@ -1,0 +1,101 @@
+﻿@inject IResourceManager _resourceManager
+@inject IStringLocalizer<SharedResource> Localizer
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.4/examples/dashboard/dashboard.css" rel="stylesheet">
+    <link href="~/css/layout-admin.css" rel="stylesheet" />
+    <style>
+        .sidebar {
+            left: auto;
+            right: 0;
+        }
+    </style>
+    @RenderSection("styles", false)
+</head>
+<body>
+
+
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">داشبورد</a>
+        @*<ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>*@
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-sm-4 col-lg-3 col-xl-2 d-none d-sm-block bg-light sidebar shadow-none border-left">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column text-right">
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Categories" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.Categories]</span></a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="AddCategory" asp-controller="Categories" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddCategory]</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Masters" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.Masters]</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Add" asp-controller="Masters" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddMaster]</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="MasterProduct" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.MasterProducts]</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="AddMasterProduct" asp-controller="MasterProduct" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddMasterProduct]</span></a>
+                        </li>
+                    </ul>
+
+                    
+                    
+                </div>
+            </nav>
+            <main role="main" class="col-sm-8 col-lg-9 col-xl-10 mr-sm-auto px-4">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/admin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.4/examples/dashboard/dashboard.js"></script>
+    @*<script src="js/jquery.min.js"></script>*@
+    @*<script src="js/bootstrap.bundle.min.js"></script> <!-- Menu Toggle Script -->*@
+    <script>
+        $(function () {
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            $(window).resize(function (e) {
+                if ($(window).width() <= 768) {
+                    $("#wrapper").removeClass("toggled");
+                } else {
+                    $("#wrapper").addClass("toggled");
+                }
+            });
+        });
+
+    </script>
+
+
+
+    @RenderSection("Scripts", false)
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿@model Terme.Endpoints.WebUI.Models.Orders.CheckoutViewModel
+@inject IResourceManager _resourceManager
+@{
+    ViewData["Title"] = _resourceManager[SharedResource.Checkout];
+}
+
+<div class="container py-4">
+    <h4>@_resourceManager[SharedResource.CheckOutNow]</h4>
+    <p class="text-muted">@_resourceManager[SharedResource.CheckOutNowMessage]</p>
+    <div class="row">
+        <div class="col-sm-6 mx-auto">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <form asp-action="Checkout" method="post">
+                <h5>@_resourceManager[SharedResource.Cuesomer]</h5>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="required"></label><input asp-for="FirstName" class="form-control" />
+                    <span class="text-danger small"  asp-validation-for="FirstName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="required"></label><input asp-for="LastName" class="form-control" />
+                    <span class="text-danger small" asp-validation-for="LastName"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="NationalCode" class="required"></label><input asp-for="NationalCode" class="form-control" />
+                    <span class="text-danger small" asp-validation-for="NationalCode"></span>
+
+                </div>
+                <h5 class="mt-5">@_resourceManager[SharedResource.Address]</h5>
+                <div class="form-group">
+                    <label asp-for="Provience" class="required"></label><input asp-for="Provience" class="form-control" />
+                    <span class="text-danger small" asp-validation-for="Provience"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="required"></label><input asp-for="City" class="form-control" />
+                    <span class="text-danger small" asp-validation-for="City"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="required"></label><input asp-for="Address" class="form-control" />
+                    <span class="text-danger small" asp-validation-for="Address"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="required"></label><input asp-for="Phone" class="form-control" />
+                    <span class="text-danger small" asp-validation-for="Phone"></span>
+
+                </div>
+                <div class="text-center">
+                    <input class="btn btn-primary" type="submit" value="@_resourceManager[SharedResource.CompeleteOrder]" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

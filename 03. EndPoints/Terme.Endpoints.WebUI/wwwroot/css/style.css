@@ -1,0 +1,121 @@
+@import url("../IRANSans/css/fontiran.min.css");
+@import url("../lib/materialdesign/css/materialdesignicons.min.css");
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body, .dropdown-menu {
+  font-size: .9rem;
+  text-align: right !important;
+  font-family: IRANSans !important;
+  font-weight: 300;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 500;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+.mr-2,
+.mx-2 {
+  margin-left: .5rem !important;
+  margin-right: 0 !important;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+/************************************/
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: Blue;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+/************************************/
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.scrolling-wrapper-flexbox .card {
+  flex: 0 0 auto;
+  width: 400px;
+}
+
+.scrolling-wrapper-flexbox .card img {
+  width: 400px;
+  height: 300px;
+}
+
+.card-img-top {
+  max-height: 170px;
+}
+
+.mdi {
+  display: inline-flex;
+}
+
+.mdi.line-height-18px::before {
+  line-height: 18px;
+}
+
+.mdi.line-height-24px::before {
+  line-height: 24px;
+}
+
+.mdi.line-height-36px::before {
+  line-height: 36px;
+}
+
+.btn {
+  display: inline-flex;
+}
+
+.carousel .carousel-indicators li {
+  background-color: black;
+}
+
+.owl-stage {
+  display: flex;
+}

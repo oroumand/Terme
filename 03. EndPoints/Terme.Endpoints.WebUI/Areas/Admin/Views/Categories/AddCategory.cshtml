@@ -1,0 +1,38 @@
+﻿@inject IResourceManager _resourceManager
+@model Terme.Endpoints.WebUI.Areas.Admin.Models.Categories.AddCategoryViewModel
+@{
+    ViewData["Title"] = _resourceManager[SharedResource.AddCategory];
+}
+
+<div class="container py-4">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">
+                <i class="fa fa-save"></i>
+                @_resourceManager[SharedResource.AddCategory]
+            </h5>
+        </div>
+        <div class="card-body">
+            <form enctype="multipart/form-data" asp-controller="Categories" asp-action="AddCategory" asp-area="admin" method="post">
+                <div class="form-group">
+                    <label asp-for="ParentId"></label>
+                    <select class="form-control" asp-for="ParentId" asp-items="Model.GetCategoriesListItems()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input type="text" class="form-control" asp-for="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo"></label>
+                    <input type="file" class="form-control" asp-for="Photo">
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <p class="text-left mb-0">
+                    <button type="submit" class="btn btn-primary">@_resourceManager[SharedResource.Save]</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

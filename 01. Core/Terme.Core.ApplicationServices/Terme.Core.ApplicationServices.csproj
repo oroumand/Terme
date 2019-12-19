@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\00. Framework\Terme.Framework\Terme.Framework.csproj" />
+    <ProjectReference Include="..\..\02. Infrastructures\Terme.Infrastructures.Data.SqlServer\Terme.Infrastructures.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\Terme.Core.Domain\Terme.Core.Domain.csproj" />
+    <ProjectReference Include="..\Terme.Core.Resources\Terme.Core.Resources.csproj" />
+  </ItemGroup>
+
+</Project>

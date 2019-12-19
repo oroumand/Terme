@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>درباره ما</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>اعمال</value>
+  </data>
+  <data name="AddCategory" xml:space="preserve">
+    <value>ثبت دسته بندی جدید</value>
+  </data>
+  <data name="AddFailure" xml:space="preserve">
+    <value>ثبت {0} ناموفق بود.</value>
+  </data>
+  <data name="AddMaster" xml:space="preserve">
+    <value>ثبت استاد</value>
+  </data>
+  <data name="AddMasterProduct" xml:space="preserve">
+    <value>ثبت کالا</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="AddSuccess" xml:space="preserve">
+    <value>ثبت {0} با موفقیت انجام شد.</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>افزودن به سبد خرید</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>مدیریت سایت</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>نام جدید برنامه</value>
+  </data>
+  <data name="BtnViewText" xml:space="preserve">
+    <value>نمایش اثر</value>
+  </data>
+  <data name="CartIsEmpty" xml:space="preserve">
+    <value>سبد خرید خالی است.</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>دسته بندی‌ها</value>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>نام دسته بندی</value>
+  </data>
+  <data name="Checkout" xml:space="preserve">
+    <value>نهایی کردن خرید</value>
+  </data>
+  <data name="CheckOutNow" xml:space="preserve">
+    <value>خرید خود را نهایی کنید</value>
+  </data>
+  <data name="CheckOutNowMessage" xml:space="preserve">
+    <value>مشخصات خود را وارد کنید. پس از پرداخت صورت حساب، خرید شما در اسرع وقت برای شما ارسال خواهد شد.</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>شهر</value>
+  </data>
+  <data name="CompeleteOrder" xml:space="preserve">
+    <value>تکمیل خرید</value>
+  </data>
+  <data name="ConnectViaTwitter" xml:space="preserve">
+    <value>ارتباط از طریق توییتر</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>تماس با ما</value>
+  </data>
+  <data name="ContinueShopping" xml:space="preserve">
+    <value>ادامه خرید</value>
+  </data>
+  <data name="CountProducts" xml:space="preserve">
+    <value>تعداد آثار</value>
+  </data>
+  <data name="Cuesomer" xml:space="preserve">
+    <value>مشتری</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>مشخصات</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>تخفیف</value>
+  </data>
+  <data name="DoPayment" xml:space="preserve">
+    <value>پرداخت</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="GoodBye" xml:space="preserve">
+    <value>و من الله توفیق</value>
+  </data>
+  <data name="HighestToLowestPrice" xml:space="preserve">
+    <value>ارزان ترین</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>صفحه اصلی</value>
+  </data>
+  <data name="Introduction" xml:space="preserve">
+    <value>معرفی </value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>کالا</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="LatestProduct" xml:space="preserve">
+    <value>جدیدترین آثار</value>
+  </data>
+  <data name="ListOfAllProducts" xml:space="preserve">
+    <value>لیست همه محصولات</value>
+  </data>
+  <data name="ListOfMasters" xml:space="preserve">
+    <value>لیست اساتید</value>
+  </data>
+  <data name="LowestToHighestPrice" xml:space="preserve">
+    <value>گران ترین</value>
+  </data>
+  <data name="MainPhoto" xml:space="preserve">
+    <value>عکس کاور(اصلی)</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>نام استاد</value>
+  </data>
+  <data name="MasterDetails" xml:space="preserve">
+    <value>معرفی استاد</value>
+  </data>
+  <data name="MasterProducts" xml:space="preserve">
+    <value>کالاها</value>
+  </data>
+  <data name="Masters" xml:space="preserve">
+    <value>اساتید</value>
+  </data>
+  <data name="MastersProducts" xml:space="preserve">
+    <value>آثار استاد</value>
+  </data>
+  <data name="MaxLength_256" xml:space="preserve">
+    <value>حداکثر تعداد کاراکتر مجاز 256 می باشد.</value>
+  </data>
+  <data name="MostDiscount" xml:space="preserve">
+    <value>با تخفیف ترین</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="NationalCode" xml:space="preserve">
+    <value>کد ملی</value>
+  </data>
+  <data name="NewestToOldest" xml:space="preserve">
+    <value>جدیدترین</value>
+  </data>
+  <data name="NoDate" xml:space="preserve">
+    <value>.اطلاعاتی جهت نمایش وجود ندارد</value>
+  </data>
+  <data name="OldestToNewest" xml:space="preserve">
+    <value>قدیمی ترین</value>
+  </data>
+  <data name="OrderCompeleted" xml:space="preserve">
+    <value>سفارش تکمیل شد</value>
+  </data>
+  <data name="OrderId" xml:space="preserve">
+    <value>شناسه سفارش</value>
+  </data>
+  <data name="OrderRegistered" xml:space="preserve">
+    <value>سفارش شما با موفقیت ثبت شد.</value>
+  </data>
+  <data name="PageNext" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="PagePrevious" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="ParentCategory" xml:space="preserve">
+    <value>دسته‌بندی سرگروه</value>
+  </data>
+  <data name="PaymentDone" xml:space="preserve">
+    <value>پرداخت موفق</value>
+  </data>
+  <data name="PaymentError" xml:space="preserve">
+    <value>خطا در پرداخت</value>
+  </data>
+  <data name="PaymentSuccess" xml:space="preserve">
+    <value>پرداخت با موفقیت انجام شد</value>
+  </data>
+  <data name="PaymentUnsuccess" xml:space="preserve">
+    <value>پرداخت ناموفق بود.</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>تلفن</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="Photos" xml:space="preserve">
+    <value>آلبوم عکس محصول</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>قیمت</value>
+  </data>
+  <data name="ProductDetails" xml:space="preserve">
+    <value>مشخصات محصول</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>نام اثر</value>
+  </data>
+  <data name="Provience" xml:space="preserve">
+    <value>استان</value>
+  </data>
+  <data name="PurposeOfSite" xml:space="preserve">
+    <value>صنایع دستی در ایران با مشکلات مهمی دست و پنجه نرم می‌کند. در این راستا تصمیم داریم با راه اندازی یک سایت حرفه‌ای به معرفی صنایع دستی ایرانی و هنرمندان عزیز کشورمان اقدام نماییم.</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>تعداد</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>برای {0} مقدار لازم است</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>ثبت</value>
+  </data>
+  <data name="ShortDescription" xml:space="preserve">
+    <value>توضیحات مختصر</value>
+  </data>
+  <data name="SiteName" xml:space="preserve">
+    <value>ترمه</value>
+  </data>
+  <data name="Subtotal" xml:space="preserve">
+    <value>جمع ردیف</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>جمع کل</value>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>مبلغ کل</value>
+  </data>
+  <data name="TrackingCode" xml:space="preserve">
+    <value>کد رهگیری</value>
+  </data>
+  <data name="ViewMasters" xml:space="preserve">
+    <value>مشاهده اساتید</value>
+  </data>
+  <data name="ViewProducts" xml:space="preserve">
+    <value>مشاهده فروشگاه</value>
+  </data>
+  <data name="WellcomeAdmin" xml:space="preserve">
+    <value>&lt;h5&gt;به سامانه مدیریت نرم افزار ترمه خوش آمدید&lt;/h5&gt;
+&lt;div&gt;
+    صنایع دستی در ایران با مشکلات مهمی دست و پنجه نرم می‌کند که برخی از آن‌ها عبارتند از
+    &lt;ul&gt;
+        &lt;li&gt;حمل و نقل و بسته بندی&lt;/li&gt;
+        &lt;li&gt;بی مهری دولت به هنرمندان صنایع دستی&lt;/li&gt;
+        &lt;li&gt;عدم برنامه ریزی صحیح جهت صادرات و کسب درآمد ارزی&lt;/li&gt;
+        &lt;li&gt;عدم معرفی صحیح اساتید و محصولات اصیل&lt;/li&gt;
+    &lt;/ul&gt;
+     در این راستا تصمیم داریم با راه اندازی یک سایت حرفه‌ای به معرفی صنایع دستی ایرانی و هنرمندان عزیز کشورمان اقدام نماییم.
+&lt;/div&gt;</value>
+  </data>
+  <data name="YourCart" xml:space="preserve">
+    <value>سبد خرید شما</value>
+  </data>
+</root>

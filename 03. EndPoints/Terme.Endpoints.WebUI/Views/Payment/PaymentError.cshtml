@@ -1,0 +1,15 @@
+﻿@model Terme.Core.Domain.Payments.PaymentResult
+@inject IResourceManager _resourceManager
+@{
+    ViewData["Title"] = _resourceManager[SharedResource.PaymentError];
+}
+
+
+<div class="d-flex flex-column align-items-center justify-content-center h-100">
+    <div class="text-center text-danger">
+        <span class="mdi mdi-alert mdi-48px"></span>
+        <h4>@_resourceManager[SharedResource.PaymentUnsuccess]</h4>
+    </div>
+
+    <p class="text-center">@Model.ErrorMessage</p>
+</div>

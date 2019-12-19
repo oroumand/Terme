@@ -1,0 +1,32 @@
+﻿@inject IResourceManager _resourceManager
+@model DtoProductsAdvanacedQuery
+
+
+<table class="table  table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@_resourceManager[SharedResource.Photo]</th>
+            <th scope="col">@_resourceManager[SharedResource.Name]</th>
+            <th scope="col">@_resourceManager[SharedResource.ShortDescription]</th>
+            <th scope="col">@_resourceManager[SharedResource.Price]</th>
+            <th scope="col">@_resourceManager[SharedResource.Discount]</th>
+            <th scope="col">@_resourceManager[SharedResource.FullName]</th>
+        </tr>
+    </thead>
+    @{int rowCounter = 1; }
+    @foreach (var item in Model.DtoProductBriefCollection)
+    {
+        <tr>
+            <td scope="row">@rowCounter</td>
+            <td><a asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@item.ProductId"><img style="width:400px; height:300px;" src="@item.PhotoUrl" /></a></td>
+            <td><a asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@item.ProductId">@item.Name</a></td>
+            <td><a asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@item.ProductId">@Html.Raw(@item.ShortDescription)</a></td>
+            <td><a asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@item.ProductId">@item.Price</a></td>
+            <td><a asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@item.ProductId">@item.Discount</a></td>
+            <td><a asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@item.ProductId">@item.MasterFullName</a></td>
+        </tr>
+        rowCounter += 1;
+    }
+</table>
+

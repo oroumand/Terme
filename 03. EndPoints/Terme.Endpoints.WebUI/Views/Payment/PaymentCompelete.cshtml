@@ -1,0 +1,13 @@
+﻿@model Terme.Core.Domain.Payments.VerifyPayemtnResult
+@inject IResourceManager _resourceManager
+@{
+    ViewData["Title"] = @_resourceManager[SharedResource.PaymentDone];
+}
+    <div class="d-flex flex-column align-items-center justify-content-center h-100">
+        <div class="text-center text-success">
+            <span class="mdi mdi-check-circle-outline mdi-48px"></span>
+            <h4>@_resourceManager[SharedResource.PaymentSuccess]</h4>
+        </div>
+
+        <p class="text-center">@_resourceManager[SharedResource.TrackingCode]:  <span class="font-weight-bold">@Model.transId</span></p>
+    </div>

@@ -1,0 +1,11 @@
+﻿@inject IResourceManager _resourceManager
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="card">
+    <div class="card-header">@_resourceManager[SharedResource.Introduction]</div>
+    <div class="card-body">
+        @Html.Raw(_resourceManager[SharedResource.WellcomeAdmin])
+    </div>
+    <div class="card-footer">@_resourceManager[SharedResource.GoodBye]</div>
+</div>

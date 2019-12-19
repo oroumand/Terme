@@ -1,0 +1,50 @@
+﻿@inject IResourceManager _resourceManager
+@inject IStringLocalizer<SharedResource> Localizer
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome-free/css/all.css" rel="stylesheet" />
+    <link href="~/css/admin.css" rel="stylesheet" />
+    <link href="~/css/image-picker.css" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+        <a class="navbar-brand mr-1" href="index.html">@Localizer.GetString("AppName")</a>
+    </nav>
+    <div id="wrapper">
+        <ul class="sidebar sidebar-nav list-unstyled bg-dark">
+            <li class="nav-item"><a href="#" class="nav-link"><span>asdf</span></a></li>
+            <li class="nav-item"><a asp-action="Index" asp-controller="Categories" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.Categories]</span></a></li>
+            <li class="nav-item"><a asp-action="AddCategory" asp-controller="Categories" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddCategory]</span></a></li>
+            <li class="nav-item"><a asp-action="Index" asp-controller="Masters" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.Masters]</span></a></li>
+            <li class="nav-item"><a asp-action="Add" asp-controller="Masters" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddMaster]</span></a></li>
+
+            <li class="nav-item"><a asp-action="Index" asp-controller="MasterProduct" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.MasterProducts]</span></a></li>
+            <li class="nav-item"><a asp-action="AddMasterProduct" asp-controller="MasterProduct" asp-area="Admin" class="nav-link"><span>@_resourceManager[SharedResource.AddMasterProduct]</span></a></li>
+
+        </ul>
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/admin.js"></script>
+
+    @*--------------------*@
+    @*<script src="~/js/jquery.imgcheckbox.js"></script>*@
+    <script src="~/js/image-picker.min.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

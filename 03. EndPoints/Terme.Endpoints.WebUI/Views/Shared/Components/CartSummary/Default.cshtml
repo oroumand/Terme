@@ -1,0 +1,24 @@
+﻿@model Terme.Core.Domain.Carts.Cart
+@inject IResourceManager _resourceManager
+@if (Model.Lines.Count() > 0)
+{
+
+}
+
+<div class="dropdown">
+    <button class="btn btn-sm btn-primary d-flex align-items-center text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="mdi mdi-18px mdi-cart-outline line-height-18px ml-1"></span>
+        <span class="ml-2">سبد خرید</span>
+        <span class="badge badge-warning mx-2 d-inline-block">@Model.Lines.Sum(x => x.Quantity)</span>
+    </button>
+    <div class="dropdown-menu text-right p-0" aria-labelledby="dropdownMenuButton">
+        <div class="p-2">
+            <small class="font-weight-bold">@_resourceManager[SharedResource.YourCart]:</small>
+            @Model.ComputeTotalValue().ToString("c")
+        </div>
+        <div class="bg-light p-2 text-center">
+            <a class="text-muted" asp-controller="Cart" asp-action="Index"
+               asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">مشاهده سبد خرید</a>
+        </div>
+    </div>
+</div>

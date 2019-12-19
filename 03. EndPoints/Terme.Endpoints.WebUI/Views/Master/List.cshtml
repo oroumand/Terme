@@ -1,0 +1,40 @@
+﻿@inject IResourceManager _resourceManager
+@model List<DtoMasterBrief>
+
+
+@{
+	ViewData["Title"] = @_resourceManager[SharedResource.ListOfMasters];
+}
+
+	<div class="container py-4">
+		<div class="row" style="margin: 0 -.5rem">
+
+			@foreach (var item in Model)
+			{
+				<div class="col-xl-3 col-lg-4 col-md-6 mb-3 px-2">
+					<div class="card shadow-sm h-100">
+						<a asp-area="" asp-controller="Master" asp-action="get" asp-route-id="@item.MasterId">
+							<img src="@item.PhotoUrl" class="card-img-top img-fluid mh-100" />
+						</a>
+						<div class="card-body d-flex flex-column">
+							<h6 class="card-text text-truncate">
+								<a class="text-primary" asp-area="" asp-controller="Master" asp-action="get" asp-route-id="@item.MasterId">
+									@item.FullName
+
+								</a>
+							</h6>
+							<p class="card-text text-justify text-muted">@Html.Raw(item.ShortDescription)</p>
+
+						</div>
+						<div class="bg-light p-3">
+							<small class="text-muted">@_resourceManager[SharedResource.CountProducts]</small>
+							<small class="text-muted">@item.CountProducts</small>
+						</div>
+					</div>
+				</div>
+
+			}
+		</div>
+
+
+	</div>

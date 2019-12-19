@@ -1,0 +1,73 @@
+﻿@inject IResourceManager _resourceManager
+@model DtoProductsAdvanacedQuery
+
+<div class="container py-4">
+    <h4 class="mb-3">@Model.Title</h4>
+    @if (Model.EnabledSorting)
+    {
+        <ul class="pagination flex-row-reverse d-inline-flex p-0">
+            <li class="page-item @(@Model.OrderByProduct == EnumOrderByProduct.NewestToOldest ? "active" : "")"><a class="page-link" asp-area="Admin" asp-controller="MasterProduct" asp-action="Index" asp-all-route-data="GenerateQueryStringFromModel(Model,1,(int)EnumOrderByProduct.NewestToOldest )">@_resourceManager[SharedResource.NewestToOldest]</a></li>
+            <li class="page-item @(@Model.OrderByProduct == EnumOrderByProduct.LowestToHighestPrice ? "active" : "")"><a class="page-link" asp-area="Admin" asp-controller="MasterProduct" asp-action="Index" asp-all-route-data="GenerateQueryStringFromModel(Model,1 ,(int)EnumOrderByProduct.LowestToHighestPrice)">@_resourceManager[SharedResource.LowestToHighestPrice]</a></li>
+            <li class="page-item @(@Model.OrderByProduct == EnumOrderByProduct.HighestToLowestPrice ? "active" : "")"><a class="page-link" asp-area="Admin" asp-controller="MasterProduct" asp-action="Index" asp-all-route-data="GenerateQueryStringFromModel(Model,1,(int)EnumOrderByProduct.HighestToLowestPrice )">@_resourceManager[SharedResource.HighestToLowestPrice]</a></li>
+            <li class="page-item @(@Model.OrderByProduct == EnumOrderByProduct.MostDiscount ? "active" : "")"><a class="page-link" asp-area="Admin" asp-controller="MasterProduct" asp-action="Index" asp-all-route-data="GenerateQueryStringFromModel(Model,1,(int)EnumOrderByProduct.MostDiscount )">@_resourceManager[SharedResource.MostDiscount]</a></li>
+            <li class="page-item @(@Model.OrderByProduct == EnumOrderByProduct.OldestToNewest ? "active" : "")"><a class="page-link" asp-area="Admin" asp-controller="MasterProduct" asp-action="Index" asp-all-route-data="GenerateQueryStringFromModel(Model,1,(int)EnumOrderByProduct.OldestToNewest )">@_resourceManager[SharedResource.OldestToNewest]</a></li>
+        </ul>
+    }
+    <div class="row" style="margin: 0 -.5rem">
+        @foreach (var dtoProduct in Model.DtoProductBriefCollection)
+        {
+
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-3 px-2">
+                <div class="card shadow-sm h-100">
+                    <a target="_blank" asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@dtoProduct.ProductId">
+                        <img class="card-img-top img-fluid mh-100" src="@dtoProduct.PhotoUrl" />
+                    </a>
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-text text-truncate">
+                            <a class="text-primary" target="_blank" asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@dtoProduct.ProductId">
+                                @dtoProduct.Name
+                            </a>
+                        </h6>
+                        <p class="card-text card-text text-justify text-muted">@Html.Raw(@dtoProduct.ShortDescription)</p>
+                        <p>
+                            <small class="text-muted">@_resourceManager[SharedResource.Price]</small>
+                            <small class="text-muted">@dtoProduct.Price</small>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <a target="_blank" class="btn btn-sm btn-info text-white" asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@dtoProduct.ProductId">@_resourceManager[SharedResource.BtnViewText]</a>
+                            <a target="_blank" asp-area="" asp-controller="Master" asp-action="get" asp-route-id="@dtoProduct.MasterId"><small class="text-muted">@dtoProduct.MasterFullName</small></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+    @if (Model.EnabledPaging && Model.CountPages > 1)
+    {
+        <ul class="pagination flex-row-reverse d-inline-flex p-0">
+            <li class="page-item @(@Model.CurrentPage ==1 ? "disabled" : "")"><a class="page-link" asp-area="Admin" asp-controller="MasterProduct" asp-action="Index" asp-all-route-data="GenerateQueryStringFromModel(Model,Model.CurrentPage-1)">@_resourceManager[SharedResource.PagePrevious]</a></li>
+
+            @for (int i = 1; i <= Model.CountPages; i++)
+            {
+                <li class="page-item @(@Model.CurrentPage == @i ? "active" : "")"><a class="page-link" asp-area="Admin" asp-controller="MasterProduct" asp-action="Index" asp-all-route-data="GenerateQueryStringFromModel(Model,i)"> @i</a></li>
+            }
+            <li class="page-item @(@Model.CurrentPage == Model.CountPages ? "disabled" : "")"><a class="page-link" asp-area="Admin" asp-controller="MasterProduct" asp-action="Index" asp-all-route-data="GenerateQueryStringFromModel(Model,Model.CurrentPage+1)">@_resourceManager[SharedResource.PageNext]</a></li>
+        </ul>
+    }
+</div>
+
+@{
+    Dictionary<string, string> GenerateQueryStringFromModel(DtoProductsAdvanacedQuery Model, int i, int? NewOrderBy = null)
+    {
+        var d = new Dictionary<string, string>();
+        if (Model.TextSeach.Trim().Length > 0) d.Add("q", @Model.TextSeach.Trim());
+        d.Add("currentpage", i.ToString());
+        if (Model.MasterId > 0) d.Add("masterid", Model.MasterId.ToString());
+        if (Model.CategoryId > 0) d.Add("categoryid", Model.CategoryId.ToString());
+        d.Add("orderby", (NewOrderBy != null ? NewOrderBy.Value.ToString() : ((int)Model.OrderByProduct).ToString()));
+        return d;
+    }
+}
+

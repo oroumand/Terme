@@ -1,0 +1,37 @@
+﻿@inject IResourceManager _resourceManager
+@model DtoProductsAdvanacedQuery
+
+
+<div class="container py-4">
+    <h4 class="my-3">@Model.Title</h4>
+    <div class="owl-carousel owl-theme" dir="ltr">
+        @foreach (var dtoProduct in Model.DtoProductBriefCollection)
+        {
+            <div class="item card h-100" dir="rtl">
+                <a asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@dtoProduct.ProductId">
+                    <img src="@dtoProduct.PhotoUrl" class="card-img-top img-fluid mh-100" />
+                </a>
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-text text-truncate">
+                        <a class="text-primary" asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@dtoProduct.ProductId">
+                            @dtoProduct.Name
+
+                        </a>
+                    </h6>
+                    <p class="card-text">@Html.Raw(@dtoProduct.ShortDescription)</p>
+                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                        <a class="btn btn-sm btn-info text-white" asp-area="" asp-controller="Product" asp-action="get" asp-route-id="@dtoProduct.ProductId">@_resourceManager[SharedResource.BtnViewText]</a>
+                        <a asp-area="" asp-controller="Master" asp-action="get" asp-route-id="@dtoProduct.MasterId"><small class="text-muted">@dtoProduct.MasterFullName</small></a>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+
+</div>
+
+
+
+
